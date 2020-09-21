@@ -25,13 +25,11 @@ classdef PredictionClient
             urlString = obj.config.predictionUrl;
             requestUrl = matlab.net.URI(urlString);
 
-            {
             options = weboptions('CharacterEncoding', 'UTF-8', ...
                 'ContentType', 'json', ...
                 'MediaType', 'application/json', ...
                 'RequestMethod', method, ...
                 'Timeout', 90);
-            }
 
             obj.logger.verboseLog(char(strcat("Sending API ", method, " to ", urlString, ":")));
             obj.logger.verboseLog(data);
